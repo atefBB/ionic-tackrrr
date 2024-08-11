@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@ionic/react": "^8.2.6",
     "@supabase/supabase-js": "^2.45.1",
     "node-sass": "^9.0.0",
     "react": "^17.0.2",
