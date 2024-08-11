@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@100;300;400;700;900&display=swap');
+@import 'helper/Margins.scss';
+
+:root {
+  --black: #555555;
+  --white: #f9f9f9;
+  --turquoise: #1488b3;
+  --mint: #289f95;
+  --orange: #f6bc65;
+}
+
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--white);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+h1 {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 3rem;
+}
+
+h2, h3, h4 {
+  margin-bottom: 1rem;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 1rem;
+  max-width: 45rem;
+
+  @media screen and (min-width: 600px) {
+    padding: 0 4rem;
+  }
+
+}
+
+button {
+  padding: 1rem;
+  border: none;
+  border-radius: .5rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.turquoise-flow {
+    background: #136a8a; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, var(--turquoise), var(--mint)); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, var(--turquoise), var(--mint)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-weight: 700;
+    color: var(--white);
+
+    &:hover {
+      background-position: right center;
+    }
+  }
+}
+form {
+  margin-top: 1rem;
+}
+
+input {
+  border: none;
+  border-radius: .5rem;
+  height: 3.125rem;
+  padding-left: 1rem;
+}
