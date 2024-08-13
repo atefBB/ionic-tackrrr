@@ -7,6 +7,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Authentification
 - Data Storage
 
+It needs a `tasks` table to work properly (to be documented).
+
 ## Available Scripts
 
 In the project directory, you can run:
