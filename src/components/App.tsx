@@ -1,5 +1,12 @@
 import { Fragment, useState, useEffect } from "react";
 import { IonApp, IonPage } from "@ionic/react";
+import {
+  IonMenuButton,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonButtons,
+} from "@ionic/react";
 
 import supabase from "../lib/supabase";
 
@@ -8,10 +15,23 @@ import { Home } from "../pages/Home";
 import Header from "../components/Header";
 import { Footer } from "./Footer";
 
-// eslint-disable-next-line
 import { setupIonicReact } from "@ionic/react";
 
-//import "@ionic/react/css/core.css";
+import "@ionic/react/css/core.css";
+/* Basic CSS for apps built with Ionic */
+import "@ionic/react/css/normalize.css";
+import "@ionic/react/css/structure.css";
+import "@ionic/react/css/typography.css";
+
+/* Optional CSS utils that can be commented out */
+import "@ionic/react/css/padding.css";
+import "@ionic/react/css/float-elements.css";
+import "@ionic/react/css/text-alignment.css";
+import "@ionic/react/css/text-transformation.css";
+import "@ionic/react/css/flex-utils.css";
+import "@ionic/react/css/display.css";
+
+setupIonicReact();
 
 export function App() {
   const [user, setUser] = useState<any>(null);
@@ -35,14 +55,22 @@ export function App() {
 
   return (
     <IonApp>
-      <IonPage>
+      {user !== null ? <Header user={user} /> : null}
+      <IonPage id="main-content">
         {user === null ? (
           <div className="container">
             <AuthForm />
           </div>
         ) : (
           <Fragment>
-            <Header user={user} />
+            <IonHeader>
+              <IonToolbar>
+                <IonButtons slot="end">
+                  <IonMenuButton></IonMenuButton>
+                </IonButtons>
+                <IonTitle className="ion-margin-horizontal">trackrrr</IonTitle>
+              </IonToolbar>
+            </IonHeader>
             <Home user={user} />
           </Fragment>
         )}

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IonButton } from "@ionic/react";
 
 import supabase from "../lib/supabase";
 
@@ -25,13 +26,13 @@ export function AuthForm() {
 
       <p>Click the button to login with GitHub.</p>
 
-      <button
-        type="button"
+      <IonButton
+        fill="outline"
         className="auth-button__clz turquoise-flow"
         onClick={handleLoginButtonOnClickEvent}
       >
         Let's go!
-      </button>
+      </IonButton>
     </div>
   );
 }

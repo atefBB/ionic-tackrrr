@@ -1,3 +1,13 @@
+import {
+  IonHeader,
+  IonToolbar,
+  IonContent,
+  IonButtons,
+  IonButton,
+  IonAvatar,
+  IonMenu,
+} from "@ionic/react";
+
 import supabase from "../lib/supabase";
 
 import "../styles/Header.scss";
@@ -9,17 +19,31 @@ const Header = ({ user }: any) => {
   };
 
   return (
-    <header>
-      <div className="header__logo">trackrrr</div>
-      {user && (
-        <div className="header__user">
-          <p className="header__user-email">{user.email}</p>|
-          <button className="header__user-logout" onClick={handleLogout}>
-            Logout
-          </button>
-        </div>
-      )}
-    </header>
+    <IonMenu side="end" contentId="main-content">
+      <IonHeader>
+        <IonToolbar>
+          <IonButtons slot="secondary">
+            <IonButton>{user.user_metadata.full_name}</IonButton>
+          </IonButtons>
+          <IonButtons slot="primary">
+            <IonButton>
+              <IonAvatar>
+                <img src={user.user_metadata.avatar_url} alt="Avatar" />
+              </IonAvatar>
+            </IonButton>
+          </IonButtons>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent className="ion-padding">
+        <IonButton
+          fill="clear"
+          className="ion-float-right"
+          onClick={handleLogout}
+        >
+          Logout
+        </IonButton>
+      </IonContent>
+    </IonMenu>
   );
 };
 
