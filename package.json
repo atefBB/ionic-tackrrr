@@ -24,9 +24,11 @@
   },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
+    "serve": "ionic serve",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:android": "ionic build --prod && ionic cap sync && ionic cap open android"
   },
   "eslintConfig": {
     "extends": [
