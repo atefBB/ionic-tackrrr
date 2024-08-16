@@ -6,9 +6,10 @@ import supabase from "../lib/supabase";
 
 import "../styles/TaskList.scss";
 
-const TaskList = ({ user }: any) => {
-  const [timers, setTimers] = useState([]);
+export function TaskList({ user }: any) {
   const newTimerTextRef = useRef();
+
+  const [timers, setTimers] = useState([]);
   const [errorText, setError] = useState("");
 
   useEffect(() => {
@@ -20,27 +21,31 @@ const TaskList = ({ user }: any) => {
       .from("tasks")
       .select("*")
       .order("id", { ascending: false });
-    if (error) console.log("error", error);
-    else setTimers(timers as any);
+
+    if (error) {
+      console.log("error", error);
+    } else {
+      setTimers(timers as any);
+    }
   };
 
   const addTimer = async () => {
     // @ts-ignore
     let timerText = newTimerTextRef?.current?.value;
     let task_title = timerText.trim();
-    if (task_title.length <= 3) {
-      setError("Task name should have more than 3 characters!");
+    if (task_title.length === 0) {
+      setError("Task name shouldn't be empty !");
     } else {
       let { data: timer, error } = await supabase
         .from("tasks")
         .insert({ task_title, user_id: user.id })
-        .single();
+        .select();
 
-      if (error) {
+      if (error !== null) {
         setError(error.message);
       } else {
         // @ts-ignore
-        setTimers([timer, ...timers]);
+        setTimers([...timer, ...timers]);
         setError("");
         // @ts-ignore
         newTimerTextRef.current.value = "";
@@ -138,6 +143,4 @@ const TaskList = ({ user }: any) => {
       {!!errorText && <div className="error-text">{errorText}</div>}
     </div>
   );
-};
-
-export default TaskList;
+}
