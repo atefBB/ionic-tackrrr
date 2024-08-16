@@ -1,7 +1,10 @@
-import "../styles/TaskList.scss";
-import supabase from "../lib/supabase";
 import { useEffect, useState, useRef } from "react";
-import TaskTimer from "./TaskTimer";
+
+import { TaskTimer } from "./TaskTimer";
+
+import supabase from "../lib/supabase";
+
+import "../styles/TaskList.scss";
 
 const TaskList = ({ user }: any) => {
   const [timers, setTimers] = useState([]);

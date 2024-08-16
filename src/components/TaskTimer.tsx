@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from "react";
 
 import "../styles/Timer.scss";
 
-const TaskTimer = ({ data, onDelete, onStart, onStop, onReset }: any) => {
+export function TaskTimer({ data, onDelete, onStart, onStop, onReset }: any) {
   const [lastStart, setLastStart] = useState(0);
   const ticking = lastStart > 0;
   const [milliSeconds, setMilliSeconds] = useState(0);
@@ -102,6 +102,4 @@ const TaskTimer = ({ data, onDelete, onStart, onStop, onReset }: any) => {
       </button>
     </div>
   );
-};
-
-export default TaskTimer;
+}
