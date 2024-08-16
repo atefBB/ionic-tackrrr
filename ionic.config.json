@@ -1,5 +1,7 @@
 {
   "name": "ionic-trackrrr",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "react"
 }
