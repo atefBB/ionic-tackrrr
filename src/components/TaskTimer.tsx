@@ -1,4 +1,11 @@
 import { useRef, useEffect, useState } from "react";
+import { IonIcon, IonButton } from "@ionic/react";
+import {
+  playOutline,
+  refreshOutline,
+  pauseOutline,
+  closeOutline,
+} from "ionicons/icons";
 
 import "../styles/Timer.scss";
 
@@ -61,23 +68,34 @@ export function TaskTimer({ data, onDelete, onStart, onStop, onReset }: any) {
         <div className="timer__time">{time(milliSeconds)}</div>
       </div>
       <div className="timer__controls">
-        <button
-          className={"timer__play"}
+        <IonButton
+          shape="round"
+          color="light"
           onClick={() => {
-            ticking ? onStop() : onStart();
+            if (ticking) {
+              onStop();
+            } else {
+              onStart();
+            }
+
             setLastStart((c: any) => (c === 0 ? new Date().getTime() : 0));
           }}
         >
-          <span className="material-icons">
-            {milliSeconds === 0
-              ? "play_arrow"
-              : ticking
-              ? "pause"
-              : "play_arrow"}
-          </span>
-        </button>
-        <button
-          className="timer__reset"
+          <IonIcon
+            slot="icon-only"
+            icon={
+              milliSeconds === 0
+                ? playOutline
+                : ticking
+                ? pauseOutline
+                : playOutline
+            }
+          ></IonIcon>
+        </IonButton>
+
+        <IonButton
+          shape="round"
+          color="light"
           disabled={ticking || milliSeconds === 0}
           onClick={(e: any) => {
             e.preventDefault();
@@ -87,10 +105,11 @@ export function TaskTimer({ data, onDelete, onStart, onStop, onReset }: any) {
             onReset();
           }}
         >
-          <span className="material-icons">replay</span>
-        </button>
+          <IonIcon slot="icon-only" icon={refreshOutline}></IonIcon>
+        </IonButton>
       </div>
-      <button
+      <IonButton
+        fill="clear"
         className="timer__delete"
         onClick={(e: any) => {
           e.preventDefault();
@@ -98,8 +117,8 @@ export function TaskTimer({ data, onDelete, onStart, onStop, onReset }: any) {
           onDelete();
         }}
       >
-        <span className="material-icons">close</span>
-      </button>
+        <IonIcon slot="icon-only" icon={closeOutline} />
+      </IonButton>
     </div>
   );
 }
