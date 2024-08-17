@@ -7,7 +7,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Authentification
 - Data Storage
 
-It needs a `tasks` table to work properly (to be documented).
+It needs a `tasks` table to work properly. The `tasks` table looks like this:
+<img src="./tasks-table.png" />
 
 ## Available Scripts
 
@@ -36,6 +37,7 @@ Builds the app for production and prepare the `android` project to be opened in 
 ### Todo
 
 [x] Upgrade to last version of React
+[ ] Initialize new added timer in `running` status
 [ ] Create a PWA app
 [ ] Improve UI (add loading data indicator, use ionic icons)
 [ ] Use Google/Facebook as `auth providers` instead of/with GitHub
