@@ -36,10 +36,10 @@ Builds the app for production and prepare the `android` project to be opened in 
 
 ### Todo
 
-[x] Upgrade to last version of React
-[ ] Initialize new added timer in `running` status
-[ ] Create a PWA app
-[ ] Improve UI (add loading data indicator, use ionic icons)
-[ ] Use Google/Facebook as `auth providers` instead of/with GitHub
-[ ] Document `tasks` table schema
-[ ] Improve errors handling
+- [x] Upgrade to last version of React
+- [ ] Initialize new added timer in `running` status
+- [ ] Create a PWA app
+- [ ] Improve UI (add loading data indicator, use ionic icons)
+- [ ] Use Google/Facebook as `auth providers` instead of/with GitHub
+- [ ] Document `tasks` table schema
+- [ ] Improve errors handling
