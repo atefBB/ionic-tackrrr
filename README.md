@@ -13,7 +13,7 @@ It needs a `tasks` table to work properly (to be documented).
 
 In the project directory, you can run:
 
-### `yarn start`
+### `yarn start` or `yarn serve`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -29,6 +29,15 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
+### `yarn build:android`
+
+Builds the app for production and prepare the `android` project to be opened in `android studio`.
+
 ### Todo
 
-- Upgrade to last version of React
+[x] Upgrade to last version of React
+[ ] Create a PWA app
+[ ] Improve UI
+[ ] Use Google/Facebook as `auth providers` instead of/with GitHub
+[ ] Document `tasks` table schema
+[ ] Improve errors handling
