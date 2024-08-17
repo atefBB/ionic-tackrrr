@@ -37,7 +37,7 @@ Builds the app for production and prepare the `android` project to be opened in 
 
 [x] Upgrade to last version of React
 [ ] Create a PWA app
-[ ] Improve UI
+[ ] Improve UI (add loading data indicator, use ionic icons)
 [ ] Use Google/Facebook as `auth providers` instead of/with GitHub
 [ ] Document `tasks` table schema
 [ ] Improve errors handling
