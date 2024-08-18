@@ -1,9 +1,9 @@
 import { TaskList } from "../components/TaskList";
 
-export function Home({ user }: any) {
+export function Home() {
   return (
     <div className="ion-padding container">
-      <TaskList user={user} />
+      <TaskList />
     </div>
   );
 }

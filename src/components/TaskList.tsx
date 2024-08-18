@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import { useIonLoading } from "@ionic/react";
 
 import { TaskTimer } from "./TaskTimer";
 
@@ -6,28 +7,33 @@ import supabase from "../lib/supabase";
 
 import "../styles/TaskList.scss";
 
-export function TaskList({ user }: any) {
+export function TaskList() {
   const newTimerTextRef = useRef();
 
   const [timers, setTimers] = useState([]);
   const [errorText, setError] = useState("");
 
+  const [showLoading, hideLoading] = useIonLoading();
+
   useEffect(() => {
+    const fetchTodos = async () => {
+      showLoading();
+      const { data: timers, error } = await supabase
+        .from("tasks")
+        .select("*")
+        .order("id", { ascending: false });
+
+      if (error) {
+        console.log("error", error);
+      } else {
+        hideLoading();
+        setTimers(timers as any);
+      }
+    };
+
     fetchTodos().catch(console.error);
+    // eslint-disable-next-line
   }, []);
-
-  const fetchTodos = async () => {
-    let { data: timers, error } = await supabase
-      .from("tasks")
-      .select("*")
-      .order("id", { ascending: false });
-
-    if (error) {
-      console.log("error", error);
-    } else {
-      setTimers(timers as any);
-    }
-  };
 
   const addTimer = async () => {
     // @ts-ignore
@@ -38,7 +44,7 @@ export function TaskList({ user }: any) {
     } else {
       let { data: timer, error } = await supabase
         .from("tasks")
-        .insert({ task_title, user_id: user.id })
+        .insert({ task_title })
         .select();
 
       if (error !== null) {
